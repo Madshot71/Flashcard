@@ -1,0 +1,24 @@
+unit Home;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  T_home = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  _home: T_home;
+
+implementation
+
+{$R *.dfm}
+
+end.

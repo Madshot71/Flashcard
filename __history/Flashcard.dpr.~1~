@@ -1,0 +1,16 @@
+program Flashcard;
+
+uses
+  Forms,
+  Login in 'Login.pas' {_login},
+  Home in 'Home.pas' {_home};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(T_login, _login);
+  Application.CreateForm(T_home, _home);
+  Application.Run;
+end.

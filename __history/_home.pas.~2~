@@ -1,0 +1,24 @@
+unit _home;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  THomePage = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  HomePage: THomePage;
+
+implementation
+
+{$R *.dfm}
+
+end.

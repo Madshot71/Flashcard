@@ -1,0 +1,27 @@
+unit _login;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls;
+
+type
+  T_login = class(TForm)
+    Background: TImage;
+    Image1: TImage;
+    Title: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  _login: T_login;
+
+implementation
+
+{$R *.dfm}
+
+end.
