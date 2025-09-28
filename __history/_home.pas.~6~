@@ -18,7 +18,6 @@ type
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     Label3: TLabel;
-    SpeedButton4: TSpeedButton;
   private
     { Private declarations }
   public

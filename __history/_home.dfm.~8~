@@ -7543,11 +7543,11 @@ object Home: THome
     TabOrder = 0
     object SpeedButton1: TSpeedButton
       Left = 0
-      Top = 150
+      Top = 100
       Width = 459
       Height = 50
       Align = alTop
-      Caption = 'ISIZULU'
+      Caption = 'History'
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -20
@@ -7589,24 +7589,6 @@ object Home: THome
       Font.Style = [fsBold]
       NumGlyphs = 2
       ParentFont = False
-    end
-    object SpeedButton4: TSpeedButton
-      Left = 0
-      Top = 100
-      Width = 459
-      Height = 50
-      Align = alTop
-      Caption = 'History'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -20
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      NumGlyphs = 2
-      ParentFont = False
-      ExplicitLeft = -16
-      ExplicitTop = 92
-      ExplicitWidth = 442
     end
   end
 end
