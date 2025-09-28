@@ -7531,8 +7531,8 @@ object Admin: TAdmin
   object Label3: TLabel
     Left = 216
     Top = 0
-    Width = 369
-    Height = 73
+    Width = 351
+    Height = 77
     Anchors = [akLeft, akTop, akRight]
     Caption = 'FLASHCARD'
     Font.Charset = ANSI_CHARSET
@@ -7541,7 +7541,6 @@ object Admin: TAdmin
     Font.Name = 'Unispace'
     Font.Style = [fsBold]
     ParentFont = False
-    ExplicitWidth = 351
   end
   object Button1: TButton
     Left = 632
@@ -7555,7 +7554,6 @@ object Admin: TAdmin
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    Style = bsSplitButton
     TabOrder = 0
   end
 end
