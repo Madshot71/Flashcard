@@ -17,7 +17,7 @@ type
     Button2: TButton;
     Label1: TLabel;
     Label2: TLabel;
-    Image2: TImage;
+    Image1: TImage;
   private
     { Private declarations }
   public

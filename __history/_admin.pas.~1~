@@ -4,18 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, jpeg, ExtCtrls, StdCtrls, pngimage;
+  Dialogs, jpeg, ExtCtrls;
 
 type
   TAdmin = class(TForm)
     Background: TImage;
-    TransperantBackground: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Shape1: TShape;
     Image1: TImage;
-    Button1: TButton;
   private
     { Private declarations }
   public
