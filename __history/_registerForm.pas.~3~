@@ -10,13 +10,11 @@ type
   TRegister = class(TForm)
     password: TButtonedEdit;
     username: TButtonedEdit;
-    RepeatPassword: TButtonedEdit;
+    ButtonedEdit1: TButtonedEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Button1: TButton;
-    StudentID: TButtonedEdit;
-    Label4: TLabel;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
@@ -35,17 +33,7 @@ uses SaveSystem;
 
 procedure TRegister.Button1Click(Sender: TObject);
 begin
-
-  if password.Text is repeatPassword.Text then
-  begin
-    //if passsword dont match show message
-    ShowMessage('Passwords dont match');
-    exit;
-  end;
-  if createUser(username.Text , password.Text , studentID.Text) then
-  begin
-    Close;  // closing form
-  end;
+  CreateUser(username.Text , password.Text , )
 end;
 
 

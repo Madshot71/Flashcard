@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  ,_registerForm;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  , home ,_registerForm;
 
 type
   TLogin = class(TForm)
@@ -34,7 +34,6 @@ implementation
 
 {$R *.dfm}
 
-uses _home;
 
 procedure TLogin.btnLoginClick(Sender: TObject);
 begin
@@ -43,8 +42,8 @@ begin
   begin
 
     // --- Step 3: Show the Home Page Form ---
-    home.Show;
-    login.Hide;
+    _home.Show; 
+    Login.Hide;
     
     // --- Step 4: Close the Login Form ---
     // The preferred way to close the Login form is to use Hide, then Close.

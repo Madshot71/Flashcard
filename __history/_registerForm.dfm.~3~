@@ -41,22 +41,9 @@ object Register: TRegister
   end
   object Label3: TLabel
     Left = 8
-    Top = 17
-    Width = 60
-    Height = 16
-    Caption = 'Student ID'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label4: TLabel
-    Left = 8
-    Top = 43
+    Top = 38
     Width = 58
-    Height = 16
+    Height = 20
     Caption = 'Username'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -81,13 +68,12 @@ object Register: TRegister
     TabOrder = 1
     TextHint = 'username'
   end
-  object RepeatPassword: TButtonedEdit
+  object ButtonedEdit1: TButtonedEdit
     Left = 120
     Top = 91
     Width = 121
     Height = 21
     TabOrder = 2
-    TextHint = 'password'
   end
   object Button1: TButton
     Left = 120
@@ -97,14 +83,5 @@ object Register: TRegister
     Caption = 'Register'
     TabOrder = 3
     OnClick = Button1Click
-  end
-  object StudentID: TButtonedEdit
-    Left = 120
-    Top = 10
-    Width = 121
-    Height = 21
-    NumbersOnly = True
-    TabOrder = 4
-    TextHint = 'Student ID'
   end
 end
