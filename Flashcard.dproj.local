@@ -22,5 +22,12 @@
     <Transaction>2025/09/28 14:42:33.497.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Login.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_login.dfm</Transaction>
     <Transaction>2025/09/28 14:42:40.105.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Admin.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_admin.pas</Transaction>
     <Transaction>2025/09/28 14:42:40.105.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Admin.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_admin.dfm</Transaction>
+    <Transaction>2025/10/20 10:42:03.921.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\SaveSystem.pas</Transaction>
+    <Transaction>2025/10/20 11:44:56.038.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\FlashCardForm.pas</Transaction>
+    <Transaction>2025/10/20 11:44:56.038.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\FlashCardForm.dfm</Transaction>
+    <Transaction>2025/10/20 11:50:24.760.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit2.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.pas</Transaction>
+    <Transaction>2025/10/20 11:50:24.760.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit2.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.dfm</Transaction>
+    <Transaction>2025/10/20 11:52:38.533.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_registerForm.pas</Transaction>
+    <Transaction>2025/10/20 11:52:38.533.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_registerForm.dfm</Transaction>
   </Transactions>
 </BorlandProject>

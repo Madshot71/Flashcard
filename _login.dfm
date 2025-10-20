@@ -7545,7 +7545,7 @@ object Login: TLogin
     ParentFont = False
     ExplicitWidth = 361
   end
-  object Button1: TButton
+  object btnLogin: TButton
     AlignWithMargins = True
     Left = 280
     Top = 431
@@ -7561,8 +7561,9 @@ object Login: TLogin
     ParentFont = False
     Style = bsCommandLink
     TabOrder = 0
+    OnClick = btnLoginClick
   end
-  object Button2: TButton
+  object btnRegister: TButton
     Left = 423
     Top = 431
     Width = 90
@@ -7576,6 +7577,7 @@ object Login: TLogin
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
+    OnClick = btnRegisterClick
   end
   object Password: TButtonedEdit
     AlignWithMargins = True

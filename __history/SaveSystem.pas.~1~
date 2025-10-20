@@ -1,0 +1,27 @@
+unit SaveSystem;
+
+interface
+
+uses Classes, SysUtils, Rtti;
+
+implementation
+
+procedure SaveComponentToFile(Component: TComponent; const FileName: string);
+var
+  FileStream: TFileStream;
+
+begin
+  FileStream := TFileStream.Create(FileName, fmCreate);
+  try
+    FileStream.WriteComponent(Component); // Saves all published properties
+  finally
+    FileStream.Free;
+  end;
+end;
+
+end.
+
+
+
+// To save a component (e.g., a TForm) to a file:
+

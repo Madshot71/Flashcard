@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  , home ,_registerForm;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  , _home ,_register;
 
 type
   TLogin = class(TForm)
@@ -38,11 +38,11 @@ implementation
 procedure TLogin.btnLoginClick(Sender: TObject);
 begin
   // --- Step 1: Validate Credentials (Example Logic) ---
-  if LoginFunction(username.Text, password.Text ) then
+  if not LoginFunction(username.Text, password.Text ) then
   begin
 
     // --- Step 3: Show the Home Page Form ---
-    _home.Show; 
+    Home.Show; 
     Login.Hide;
     
     // --- Step 4: Close the Login Form ---
@@ -61,7 +61,7 @@ procedure TLogin.btnRegisterClick(Sender: TObject);
 
 begin
 
-  if not Register.Visible then
+  if (regOn is not true) then
   begin
      Register.ShowModal;
      regOn := true;

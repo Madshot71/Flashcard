@@ -1,13 +1,15 @@
-unit Home;
+unit FlashCardForm;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, ExtCtrls, pngimage;
 
 type
-  T_home = class(TForm)
+  TForm1 = class(TForm)
+    background: TImage;
+    transperantBackground: TImage;
   private
     { Private declarations }
   public
@@ -15,7 +17,7 @@ type
   end;
 
 var
-  _home: T_home;
+  Form1: TForm1;
 
 implementation
 

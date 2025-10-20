@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls, Buttons ;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls, Buttons , login;
 
 type
   THome = class(TForm)
@@ -14,10 +14,11 @@ type
     Label2: TLabel;
     Image1: TImage;
     ScrollBox1: TScrollBox;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     Label3: TLabel;
-    SbtnFlashcard: TSpeedButton;
-    Button2: TButton;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    SpeedButton4: TSpeedButton;
   private
     { Private declarations }
   public
@@ -32,14 +33,10 @@ implementation
 
 {$R *.dfm}
 
-uses _login;
 
-procedure THome.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure THome.OnClose(Sender : TObject) ;
 begin
-  if not login.Visible then
-  begin
-    application.Terminate;
-  end;
+  mainOn := login.
 end;
 
 end.

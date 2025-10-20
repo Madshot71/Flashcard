@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  , home ,_registerForm;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  , _home ;
 
 type
   TLogin = class(TForm)
@@ -13,18 +13,16 @@ type
     Title: TLabel;
     Username: TButtonedEdit;
     Password: TButtonedEdit;
-    btnLogin: TButton;
-    btnRegister: TButton;
+    Button1: TButton;
+    Button2: TButton;
     Label1: TLabel;
     Label2: TLabel;
     Image2: TImage;
-    procedure btnLoginClick(Sender: TObject);
-    procedure btnRegisterClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    regOn: bool;
   end;
 
 var
@@ -35,14 +33,14 @@ implementation
 {$R *.dfm}
 
 
-procedure TLogin.btnLoginClick(Sender: TObject);
+procedure TLogin.Button1Click(Sender: TObject);
 begin
   // --- Step 1: Validate Credentials (Example Logic) ---
-  if LoginFunction(username.Text, password.Text ) then
+  if not LoginFunction(username.Text, password.Text ) then
   begin
 
     // --- Step 3: Show the Home Page Form ---
-    _home.Show; 
+    Home.Show; 
     Login.Hide;
     
     // --- Step 4: Close the Login Form ---
@@ -55,18 +53,6 @@ begin
      // This closes the Login form.
            // Since MainForm is now visible, the application stays running.
   end
-end;
-
-procedure TLogin.btnRegisterClick(Sender: TObject);
-
-begin
-
-  if not Register.Visible then
-  begin
-     Register.ShowModal;
-     regOn := true;
-  end;
-  
 end;
 
 end.

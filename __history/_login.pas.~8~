@@ -1,0 +1,68 @@
+unit _login;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem;
+
+type
+  TLogin = class(TForm)
+    Background: TImage;
+    TransperantBackground: TImage;
+    Title: TLabel;
+    Username: TButtonedEdit;
+    Password: TButtonedEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Image2: TImage;
+    procedure UsernameChange(Sender: TObject);
+    procedure PasswordChange(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Login: TLogin;
+  password_stringValue : string;
+  username_stringValue : string;
+
+implementation
+
+{$R *.dfm}
+
+function login (): bool;
+begin
+
+end;
+
+
+procedure TLogin.Button1Click(Sender: TObject);
+var
+  txtProfile : Textfile;
+begin
+  if FileExists (username.Text + '.txt') then
+  begin
+    AssignFile(txtProfile , username.Text + '.txt');
+    Rewrite(txtProfile);
+    
+    CloseFile(txtProfile);
+  end else showMessage('Someone with the same username already ')
+end;
+
+procedure TLogin.PasswordChange(Sender: TObject);
+begin
+  password_stringValue := password.Text;
+end;
+
+procedure TLogin.UsernameChange(Sender: TObject);
+begin
+  username_stringValue := username.Text;
+end;
+
+end.

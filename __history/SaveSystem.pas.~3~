@@ -1,0 +1,12 @@
+unit SaveSystem;
+
+interface
+
+implementation
+
+end.
+
+
+
+// To save a component (e.g., a TForm) to a file:
+

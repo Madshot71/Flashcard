@@ -52,6 +52,13 @@
 			<DCCReference Include="_admin.pas">
 				<Form>Admin</Form>
 			</DCCReference>
+			<DCCReference Include="SaveSystem.pas"/>
+			<DCCReference Include="FlashCardForm.pas">
+				<Form>Form1</Form>
+			</DCCReference>
+			<DCCReference Include="_registerForm.pas">
+				<Form>Register</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

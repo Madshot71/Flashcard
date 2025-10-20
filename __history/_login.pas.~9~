@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem;
 
 type
   TLogin = class(TForm)
@@ -16,8 +16,8 @@ type
     Button1: TButton;
     Button2: TButton;
     Label1: TLabel;
-    Panel1: TPanel;
-    Background1: TImage;
+    Label2: TLabel;
+    Image2: TImage;
   private
     { Private declarations }
   public
@@ -30,5 +30,6 @@ var
 implementation
 
 {$R *.dfm}
+
 
 end.

@@ -11,7 +11,6 @@ object Home: THome
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnClose = FormClose
   DesignSize = (
     800
     600)
@@ -7542,9 +7541,59 @@ object Home: THome
     Width = 463
     Height = 257
     TabOrder = 0
-    object SbtnFlashcard: TSpeedButton
+    object SpeedButton1: TSpeedButton
+      Left = 0
+      Top = 150
+      Width = 459
+      Height = 50
+      Align = alTop
+      Caption = 'ISIZULU'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      NumGlyphs = 2
+      ParentFont = False
+      ExplicitLeft = -16
+      ExplicitTop = 92
+      ExplicitWidth = 442
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 0
+      Top = 50
+      Width = 459
+      Height = 50
+      Align = alTop
+      Caption = 'Maths'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      NumGlyphs = 2
+      ParentFont = False
+      ExplicitTop = 0
+    end
+    object SpeedButton3: TSpeedButton
       Left = 0
       Top = 0
+      Width = 459
+      Height = 50
+      Align = alTop
+      Caption = 'History'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      NumGlyphs = 2
+      ParentFont = False
+      OnClick = SpeedButton3Click
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 0
+      Top = 100
       Width = 459
       Height = 50
       Align = alTop
@@ -7568,5 +7617,6 @@ object Home: THome
     Height = 25
     Caption = 'Button2'
     TabOrder = 1
+    OnClick = Button2Click
   end
 end

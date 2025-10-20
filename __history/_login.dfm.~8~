@@ -1,7 +1,7 @@
-object Home: THome
+object Login: TLogin
   Left = 0
   Top = 0
-  Caption = 'Home'
+  Caption = 'Login'
   ClientHeight = 600
   ClientWidth = 800
   Color = clBtnFace
@@ -19,8 +19,8 @@ object Home: THome
   object Background: TImage
     Left = 0
     Top = 0
-    Width = 801
-    Height = 601
+    Width = 800
+    Height = 599
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7021,15 +7021,14 @@ object Home: THome
       0838F3E9BFA928BAB2707699AF1FD5669F8A7CAE3CAFDC4F424D5D9182A704CD
       2D774A3CAFDC4A2EDBB12C9382A8B66AAC59FFD9}
     Stretch = True
-    Transparent = True
-    ExplicitWidth = 769
-    ExplicitHeight = 265
+    ExplicitWidth = 617
+    ExplicitHeight = 425
   end
   object TransperantBackground: TImage
     Left = 0
-    Top = 8
-    Width = 801
-    Height = 601
+    Top = 1
+    Width = 800
+    Height = 598
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7362,27 +7361,34 @@ object Home: THome
       009810C000000000000000130218000000000000604200030000000000004C08
       600000000000008009010C000000000000302180010000000000002604300000
       00000000C0447B01F347311614BA0000000049454E44AE426082}
+    Stretch = True
+    ExplicitWidth = 617
+    ExplicitHeight = 424
   end
-  object Label1: TLabel
-    Left = 16
-    Top = 79
-    Width = 89
-    Height = 25
-    Anchors = []
+  object Label2: TLabel
+    Left = 280
+    Top = 168
+    Width = 229
+    Height = 44
+    Alignment = taCenter
+    Anchors = [akLeft, akTop, akRight]
     AutoSize = False
-    Caption = 'HOME /'
-    Font.Charset = DEFAULT_CHARSET
+    Caption = 'WELCOME'
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
-    Font.Height = -20
-    Font.Name = 'Tahoma'
+    Font.Height = -37
+    Font.Name = 'Unispace'
     Font.Style = [fsBold]
     ParentFont = False
+    Layout = tlCenter
+    ExplicitWidth = 233
   end
-  object Image1: TImage
+  object Image2: TImage
     Left = 0
     Top = 0
-    Width = 792
+    Width = 800
     Height = 73
+    Anchors = [akLeft, akTop, akRight]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000004190000
       02D008020000005A2A3FE3000000017352474200AECE1CE90000000467414D41
@@ -7505,13 +7511,31 @@ object Home: THome
       00000A2F010000145E02000028BC0400005078090000A0F012000040E1250000
       80C24B000000C505535702D1A92851DE0000000049454E44AE426082}
     Stretch = True
+    ExplicitWidth = 804
   end
-  object Label2: TLabel
-    Left = 200
-    Top = 8
-    Width = 383
-    Height = 69
+  object Label1: TLabel
+    Left = 705
+    Top = 586
+    Width = 102
+    Height = 13
+    Anchors = [akRight, akBottom]
+    Caption = '2025/09/27 18:09'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ExplicitLeft = 632
+    ExplicitTop = 428
+  end
+  object Title: TLabel
+    Left = 224
+    Top = 0
+    Width = 357
+    Height = 73
     Anchors = [akLeft, akTop, akRight]
+    AutoSize = False
     Caption = 'FLASHCARD'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
@@ -7519,76 +7543,75 @@ object Home: THome
     Font.Name = 'Unispace'
     Font.Style = [fsBold]
     ParentFont = False
+    ExplicitWidth = 361
   end
-  object Label3: TLabel
-    Left = 674
-    Top = 587
-    Width = 118
-    Height = 14
-    Alignment = taCenter
-    Anchors = [akTop]
-    Caption = '2025/09/27 18:09'
+  object Button1: TButton
+    AlignWithMargins = True
+    Left = 280
+    Top = 431
+    Width = 113
+    Height = 45
+    Anchors = [akLeft]
+    Caption = 'LOGIN'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -12
+    Font.Color = clBlack
+    Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-  end
-  object ScrollBox1: TScrollBox
-    Left = 120
-    Top = 176
-    Width = 463
-    Height = 257
+    Style = bsCommandLink
     TabOrder = 0
-    object SpeedButton1: TSpeedButton
-      Left = 0
-      Top = 100
-      Width = 459
-      Height = 50
-      Align = alTop
-      Caption = 'History'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -20
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      NumGlyphs = 2
-      ParentFont = False
-      ExplicitLeft = -16
-      ExplicitTop = 92
-      ExplicitWidth = 442
-    end
-    object SpeedButton2: TSpeedButton
-      Left = 0
-      Top = 50
-      Width = 459
-      Height = 50
-      Align = alTop
-      Caption = 'Maths'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -20
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      NumGlyphs = 2
-      ParentFont = False
-      ExplicitTop = 0
-    end
-    object SpeedButton3: TSpeedButton
-      Left = 0
-      Top = 0
-      Width = 459
-      Height = 50
-      Align = alTop
-      Caption = 'History'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -20
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      NumGlyphs = 2
-      ParentFont = False
-    end
+  end
+  object Button2: TButton
+    Left = 423
+    Top = 431
+    Width = 90
+    Height = 45
+    Anchors = [akLeft]
+    Caption = 'REGISTER'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+  end
+  object Password: TButtonedEdit
+    AlignWithMargins = True
+    Left = 280
+    Top = 359
+    Width = 233
+    Height = 25
+    Alignment = taCenter
+    Anchors = [akLeft]
+    AutoSelect = False
+    AutoSize = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    TextHint = 'PASSWORD'
+  end
+  object Username: TButtonedEdit
+    Left = 280
+    Top = 319
+    Width = 233
+    Height = 25
+    Alignment = taCenter
+    Anchors = [akLeft]
+    AutoSelect = False
+    AutoSize = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    TextHint = 'USERNAME'
   end
 end

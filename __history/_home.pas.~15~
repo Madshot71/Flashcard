@@ -4,13 +4,20 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls, Buttons;
 
 type
   THome = class(TForm)
     Background: TImage;
     TransperantBackground: TImage;
     Label1: TLabel;
+    Label2: TLabel;
+    Image1: TImage;
+    ScrollBox1: TScrollBox;
+    Label3: TLabel;
+    SbtnFlashcard: TSpeedButton;
+    Button2: TButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -19,9 +26,12 @@ type
 
 var
   Home: THome;
+  mainOn: bool;
 
 implementation
 
 {$R *.dfm}
+
+
 
 end.
