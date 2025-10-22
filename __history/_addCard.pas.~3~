@@ -1,0 +1,36 @@
+unit _addCard;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs , ExtCtrls , StdCtrls,Buttons, ComCtrls, Menus;
+
+type
+  TAddCard = class(TForm)
+    Definition: TButtonedEdit;
+    Button1: TButton;
+    Explaintion: TRichEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure ExplaintionChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AddCard: TAddCard;
+
+implementation
+
+{$R *.dfm}
+
+uses FlashCardManager;
+
+procedure TAddCard.Button1Click(Sender: TObject);
+begin
+  manager.AddCard(Definition.Text , Explaintion.Lines.Text);
+end;
+
+end.

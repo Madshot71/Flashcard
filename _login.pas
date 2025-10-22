@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls , SaveSystem  ,_registerForm;
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls  ,_registerForm;
 
 type
   TLogin = class(TForm)
@@ -34,7 +34,7 @@ implementation
 
 {$R *.dfm}
 
-uses _home;
+uses _home , LoginManager;
 
 procedure TLogin.btnLoginClick(Sender: TObject);
 begin
@@ -55,7 +55,7 @@ begin
 
      // This closes the Login form.
            // Since MainForm is now visible, the application stays running.
-  end
+  end;
 end;
 
 procedure TLogin.btnRegisterClick(Sender: TObject);

@@ -2,9 +2,13 @@ object Admin: TAdmin
   Left = 0
   Top = 0
   Caption = 'Admin'
-  ClientHeight = 600
-  ClientWidth = 800
+  ClientHeight = 761
+  ClientWidth = 784
   Color = clBtnFace
+  Constraints.MaxHeight = 1000
+  Constraints.MaxWidth = 800
+  Constraints.MinHeight = 800
+  Constraints.MinWidth = 600
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -12,15 +16,15 @@ object Admin: TAdmin
   Font.Style = []
   OldCreateOrder = False
   DesignSize = (
-    800
-    600)
+    784
+    761)
   PixelsPerInch = 96
   TextHeight = 13
   object Background: TImage
     Left = 0
     Top = 0
-    Width = 802
-    Height = 601
+    Width = 786
+    Height = 762
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7027,8 +7031,8 @@ object Admin: TAdmin
   object TransperantBackground: TImage
     Left = 0
     Top = 0
-    Width = 957
-    Height = 633
+    Width = 941
+    Height = 794
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7401,7 +7405,7 @@ object Admin: TAdmin
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 803
+    Width = 787
     Height = 73
     Anchors = [akLeft, akTop, akRight]
     Picture.Data = {
@@ -7531,7 +7535,7 @@ object Admin: TAdmin
   object Label3: TLabel
     Left = 216
     Top = 0
-    Width = 351
+    Width = 353
     Height = 77
     Anchors = [akLeft, akTop, akRight]
     Caption = 'FLASHCARD'
@@ -7541,19 +7545,5 @@ object Admin: TAdmin
     Font.Name = 'Unispace'
     Font.Style = [fsBold]
     ParentFont = False
-  end
-  object Button1: TButton
-    Left = 632
-    Top = 91
-    Width = 145
-    Height = 29
-    Caption = 'Create Flashcard'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 0
   end
 end

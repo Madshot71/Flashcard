@@ -2,9 +2,13 @@ object Login: TLogin
   Left = 0
   Top = 0
   Caption = 'Login'
-  ClientHeight = 600
-  ClientWidth = 800
+  ClientHeight = 761
+  ClientWidth = 784
   Color = clBtnFace
+  Constraints.MaxHeight = 1000
+  Constraints.MaxWidth = 800
+  Constraints.MinHeight = 800
+  Constraints.MinWidth = 600
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -12,15 +16,15 @@ object Login: TLogin
   Font.Style = []
   OldCreateOrder = False
   DesignSize = (
-    800
-    600)
+    784
+    761)
   PixelsPerInch = 96
   TextHeight = 13
   object Background: TImage
     Left = 0
     Top = 0
-    Width = 800
-    Height = 599
+    Width = 784
+    Height = 784
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7027,8 +7031,8 @@ object Login: TLogin
   object TransperantBackground: TImage
     Left = 0
     Top = 1
-    Width = 800
-    Height = 598
+    Width = 784
+    Height = 783
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7366,27 +7370,27 @@ object Login: TLogin
     ExplicitHeight = 424
   end
   object Label2: TLabel
-    Left = 280
-    Top = 168
-    Width = 229
-    Height = 44
+    Left = 248
+    Top = 292
+    Width = 289
+    Height = 76
     Alignment = taCenter
-    Anchors = [akLeft, akTop, akRight]
+    Anchors = [akLeft, akRight, akBottom]
     AutoSize = False
     Caption = 'WELCOME'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
-    Font.Height = -37
+    Font.Height = -64
     Font.Name = 'Unispace'
     Font.Style = [fsBold]
     ParentFont = False
     Layout = tlCenter
-    ExplicitWidth = 233
+    ExplicitTop = 280
   end
   object Image2: TImage
     Left = 0
     Top = 0
-    Width = 800
+    Width = 784
     Height = 73
     Anchors = [akLeft, akTop, akRight]
     Picture.Data = {
@@ -7514,8 +7518,8 @@ object Login: TLogin
     ExplicitWidth = 804
   end
   object Label1: TLabel
-    Left = 705
-    Top = 586
+    Left = 689
+    Top = 771
     Width = 102
     Height = 13
     Anchors = [akRight, akBottom]
@@ -7532,7 +7536,7 @@ object Login: TLogin
   object Title: TLabel
     Left = 224
     Top = 0
-    Width = 357
+    Width = 341
     Height = 73
     Anchors = [akLeft, akTop, akRight]
     AutoSize = False
@@ -7548,7 +7552,7 @@ object Login: TLogin
   object btnLogin: TButton
     AlignWithMargins = True
     Left = 280
-    Top = 431
+    Top = 571
     Width = 113
     Height = 45
     Anchors = [akLeft]
@@ -7565,7 +7569,7 @@ object Login: TLogin
   end
   object btnRegister: TButton
     Left = 423
-    Top = 431
+    Top = 571
     Width = 90
     Height = 45
     Anchors = [akLeft]
@@ -7582,7 +7586,7 @@ object Login: TLogin
   object Password: TButtonedEdit
     AlignWithMargins = True
     Left = 280
-    Top = 359
+    Top = 475
     Width = 233
     Height = 25
     Alignment = taCenter
@@ -7600,7 +7604,7 @@ object Login: TLogin
   end
   object Username: TButtonedEdit
     Left = 280
-    Top = 319
+    Top = 422
     Width = 233
     Height = 25
     Alignment = taCenter

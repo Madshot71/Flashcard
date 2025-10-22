@@ -31,17 +31,18 @@ implementation
 
 {$R *.dfm}
 
-uses SaveSystem;
+uses LoginManager;
 
 procedure TRegister.Button1Click(Sender: TObject);
 begin
 
-  if password.Text is repeatPassword.Text then
+  if not (password.Text = repeatPassword.Text) then
   begin
     //if passsword dont match show message
     ShowMessage('Passwords dont match');
     exit;
   end;
+
   if createUser(username.Text , password.Text , studentID.Text) then
   begin
     Close;  // closing form

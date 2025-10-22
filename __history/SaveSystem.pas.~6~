@@ -1,0 +1,80 @@
+unit SaveSystem;
+
+interface
+
+uses SysUtils, Classes, Contnrs, FlashCardManager ;
+
+var
+  userTxt : TextFile;
+
+function CreatUser(username , password : string): Boolean;
+function GetCards(out group : TFlashCardGroup): boolean;
+function AddCard(Definition , Exlaination : string ): Boolean;
+function GetUserData(username);
+
+implementation
+
+
+function CreateUser(username, password : string):boolean;
+begin
+
+end;
+
+
+function GetCards(name : string; out group : TFlashCardGroup): boolean;
+var
+currentLine : string;
+definition : string;
+Explaination : string;
+Found : boolean;
+card : TFlashCard;
+begin
+  RESET(userTxt);
+  while not Eof(userTxt) do
+  begin
+    READLN(userTxt , currentLine);
+
+    //Staring point of the Card Group
+    if currentLine = 'SUBJECT :' + name and not Found then
+    begin
+      Found := true;
+      Continue;
+    end;
+
+    //Get The Definition
+    if currentLine = 'DEFINITION :' then
+    begin
+        READLN(userTxt , Explaination);
+    end;
+
+    //Get The Explaintion
+    if currentLine = 'EXPLAINATION :' then
+    begin
+      READLN(userTxt , Explaination);
+    end;
+
+    //Create new instance if a FlashCard
+    card := TFlashCard.Create;
+    card.Question := Definition;
+    card.Answer := Explaination;
+
+    //Add It to the dictionary
+    group.cards.Add(name , card);
+
+
+
+    if not currentLine = 'Close : ' + name and Found then
+    begin
+      result := true;
+      Exit;
+    end;
+
+  end;
+
+end;
+
+function GetCardAT()
+
+
+
+end.

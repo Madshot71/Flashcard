@@ -1,0 +1,202 @@
+unit FlashCardManager;
+
+interface
+
+uses
+  SysUtils, Classes, Contnrs,            // Contnrs is needed for TObjectList/TObjectDictionary
+  Generics.Collections,                  // Needed for TDictionary
+  IOUtils, Dialogs;                      // Added Dialogs for ShowMessage, IOUtils for TFile.Exists
+
+type
+  TFlashCard = class
+  public // FIX 1: Added public access specifier
+    Definition: string;
+    Explanation: string; // FIX 1: Corrected spelling
+    constructor Create(ADef: string = ''; AExp: string = '');
+  end;
+
+  TFlashCardManager = class
+  private
+    // Subject maps string (SubjectName) to a list of cards for that subject
+    // The list must own the TFlashCard objects to prevent leaks.
+    Subject: TDictionary<string, TObjectList<TFlashCard>>;
+
+    // Helper method for loading logic
+    function InternalLoad: boolean;
+
+  public
+    constructor Create();
+    destructor Destroy; override;
+
+    // Original functions, refactored for better responsibility
+    function GetFile: boolean;
+    function CreateCard(Definition, Explanation: string): TFlashCard;
+    function Load: boolean;
+    function Save: boolean; // Needs implementation
+  end;
+
+var
+  UserCards: TextFile;
+  Manager: TFlashCardManager; // Better to have a global Manager variable
+
+implementation
+
+uses LoginManager; // Required for 'user' variable
+
+{ TFlashCard }
+
+constructor TFlashCard.Create(ADef: string; AExp: string);
+begin
+  inherited Create;
+  Definition := ADef;
+  Explanation := AExp;
+end;
+
+{ TFlashCardManager }
+
+constructor TFlashCardManager.Create();
+begin
+  // Initialize the dictionary. We do NOT use doOwnsValues here,
+  // as we handle freeing the TObjectLists manually in the destructor.
+  // Alternatively, you could use TObjectDictionary<string, TObjectList<TFlashCard>>([doOwnsValues])
+  // but TDictionary is fine if you handle the list freeing.
+  Subject := TDictionary<string, TObjectList<TFlashCard>>.Create;
+end;
+
+destructor TFlashCardManager.Destroy;
+var
+  List : TObjectList<TFlashCard>;
+begin
+  // CRITICAL: Manually free all TObjectList objects stored as values.
+  for List in Subject.Values do
+    List.Free;
+
+  Subject.Free;
+  inherited;
+end;
+
+function TFlashCardManager.GetFile(): boolean;
+var
+  FileName: string;
+begin
+  // FIX 2: Use a clear file naming convention and check for existence
+  FileName := user.StudentID + '.cards.txt';
+
+  Result := False;
+  if TFile.Exists(FileName) then
+  begin
+    AssignFile(UserCards, FileName);
+    Result := True;
+  end else
+  begin
+    ShowMessage('Card file not found for user: ' + FileName);
+  end;
+end;
+
+function TFlashCardManager.CreateCard(Definition, Explanation: string): TFlashCard;
+begin
+  // This function is simple: just create and return the object
+  Result := TFlashCard.Create(Definition, Explanation);
+end;
+
+function TFlashCardManager.Load(): boolean;
+begin
+  Result := False;
+
+  // FIX: Separate file opening/closing from the loading logic
+  if not GetFile then Exit;
+  try
+    Reset(UserCards); // Open the file for reading
+    Result := InternalLoad;
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Error opening or reading file: ' + E.Message);
+    end;
+  end;
+
+  CloseFile(UserCards);
+end;
+
+function TFlashCardManager.InternalLoad: boolean;
+var
+  CurrentLn, SubjectName, TempValue: string;
+  Card: TFlashCard;
+  CardList: TObjectList<TFlashCard>;
+begin
+  // Clear existing data first
+  for var List in Subject.Values do
+      List.Free;
+  Subject.Clear;
+
+  try
+    while not Eof(UserCards) do
+    begin
+      ReadLn(UserCards, CurrentLn);
+      CurrentLn := Trim(CurrentLn);
+
+      // 1. Check for the start of a new subject block
+      if Pos('SUBJECT :', CurrentLn) = 1 then
+      begin
+        SubjectName := Trim(Copy(CurrentLn, Length('SUBJECT :') + 1, MaxInt));
+
+        // Get or create the TObjectList for the subject
+        if not Subject.TryGetValue(SubjectName, CardList) then
+        begin
+            // Create list with True to own TFlashCard objects
+            CardList := TObjectList<TFlashCard>.Create(True);
+            Subject.Add(SubjectName, CardList);
+        end;
+
+        Card := TFlashCard.Create; // Start a new card creation block
+
+        // 2. Loop to read card details until CLOSECARD or EOF
+        while not Eof(UserCards) do
+        begin
+          ReadLn(UserCards, CurrentLn);
+          CurrentLn := Trim(CurrentLn);
+
+          if CurrentLn = 'CLOSECARD' then
+          begin
+            // Finished card: Add to the list and break inner loop
+            CardList.Add(Card);
+            break;
+          end
+          // 3. Handle card field data
+          else if Pos('DEFINITION :', CurrentLn) = 1 then
+          begin
+            TempValue := Trim(Copy(CurrentLn, Length('DEFINITION :') + 1, MaxInt));
+            Card.Definition := TempValue;
+          end
+          else if Pos('EXPLANATION :', CurrentLn) = 1 then
+          begin
+            TempValue := Trim(Copy(CurrentLn, Length('EXPLANATION :') + 1, MaxInt));
+            Card.Explanation := TempValue;
+          end;
+        end; // End of inner while loop
+      end; // End of SUBJECT check
+    end; // End of outer while loop (EOF)
+    Result := True;
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Error during internal load process: ' + E.Message);
+      Result := False;
+    end;
+  end;
+end;
+
+function TFlashCardManager.Save(): boolean;
+// Implementation required here to iterate through Subject, writing the SUBJECT :, DEFINITION :, EXPLANATION : and CLOSECARD tags.
+begin
+  Result := False; // Placeholder
+end;
+
+// Global instance creation (optional, but follows your original pattern)
+initialization
+  Manager := TFlashCardManager.Create;
+
+finalization
+  FreeAndNil(Manager);
+
+end.

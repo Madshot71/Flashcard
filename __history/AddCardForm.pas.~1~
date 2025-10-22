@@ -1,0 +1,27 @@
+unit AddCardForm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs , ExtCtrls , StdCtrls,Buttons, ComCtrls, Menus;
+
+type
+  TAddCard = class(TForm)
+    ButtonedEdit1: TButtonedEdit;
+    Button1: TButton;
+    RichEdit1: TRichEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AddCard: TAddCard;
+
+implementation
+
+{$R *.dfm}
+
+end.

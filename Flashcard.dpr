@@ -5,9 +5,11 @@ uses
   _login in '_login.pas' {Login},
   _home in '_home.pas' {Home},
   _admin in '_admin.pas' {Admin},
-  SaveSystem in 'SaveSystem.pas',
-  FlashCardForm in 'FlashCardForm.pas' {Form1},
-  _registerForm in '_registerForm.pas' {Register};
+  LoginManager in 'LoginManager.pas',
+  _card in '_card.pas' {Card},
+  _registerForm in '_registerForm.pas' {Register},
+  FlashCardManager in 'FlashCardManager.pas',
+  _addCard in '_addCard.pas' {AddCard};
 
 {$R *.res}
 
@@ -17,7 +19,8 @@ begin
   Application.CreateForm(TLogin, Login);
   Application.CreateForm(THome, Home);
   Application.CreateForm(TAdmin, Admin);
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TCard, Card);
   Application.CreateForm(TRegister, Register);
+  Application.CreateForm(TAddCard, AddCard);
   Application.Run;
 end.

@@ -2,107 +2,79 @@ unit SaveSystem;
 
 interface
 
-uses
-  SysUtils, Classes, Dialogs; // Minimal uses for file I/O and messaging
+uses SysUtils, Classes, Contnrs, FlashCardManager ;
 
-type
-  // ?? FIX 1: Class fields must be declared with a colon (:)
-  // and placed under an access specifier (e.g., public).
-  TPerson = class
-  public
-    Username: string;
-    Password: string;
-    StudentID: string; // Added StudentID field based on your CreateUser function
-  end;
+var
+  userTxt : TextFile;
 
-  // ?? FIX 2: Corrected TFlashCard class syntax
-  TFlashCard = class
-  public
-    Definition: string;
-    Explanation: string; // Corrected typo (Explantion -> Explanation)
-  end;
-
-// Function Declarations
-function CreateUser(name: string; password: string; studentID: string): Boolean;
-function LoginFunction(username: string; Password: string): Boolean;
+function CreatUser(username , password : string): Boolean;
+function GetCards(out group : TFlashCardGroup): boolean;
+function AddCard(Definition , Exlaination : string ): Boolean;
+function GetUserData(username : string);
 
 implementation
 
-function CreateUser(name: string; password: string; studentID: string): Boolean;
-var
-  FileName: string;
-  txtProfile: TextFile;
+
+function CreateUser(username, password : string):boolean;
 begin
-  FileName := name + '.txt';
 
-  // ?? FIX 3: The logic for existence check is inverted in your original code.
-  // If the file EXISTS, the user EXISTS, so you shouldn't create it.
-  if not FileExists(FileName) then // Check if file DOES NOT exist
-  begin
-    AssignFile(txtProfile, FileName);
-    Rewrite(txtProfile);
-
-    WriteLn(txtProfile, name);       // Line 1: Username
-    WriteLn(txtProfile, password);    // Line 2: Password
-    WriteLn(txtProfile, studentID);   // Line 3: StudentID
-
-    CloseFile(txtProfile);
-    ShowMessage('Profile successfully created.');
-    Result := True;
-  end
-  else
-  begin
-    ShowMessage('Username already exists.');
-    Result := False;
-  end;
 end;
 
-function LoginFunction(username: string; Password: string): Boolean;
+
+function GetCards(name : string; out group : TFlashCardGroup): boolean;
 var
-  FileName: string;
-  txtProfile: TextFile;
-  StoredUsername, StoredPassword, StoredStudentID: string;
+currentLine : string;
+definition : string;
+Explaination : string;
+Found : boolean;
+card : TFlashCard;
 begin
-  FileName := username + '.txt';
-
-  // 1. Check if the profile file exists
-  if not FileExists(FileName) then
+  RESET(userTxt);
+  while not Eof(userTxt) do
   begin
-    ShowMessage('No profile with that username exists.');
-    Result := False;
-    Exit; // Exit the function immediately
-  end;
+    READLN(userTxt , currentLine);
 
-  // 2. Open the file and read the stored credentials
-  AssignFile(txtProfile, FileName);
-  Reset(txtProfile); // Open file for reading
-
-  try
-    // Read data line-by-line in the same order it was written
-    ReadLn(txtProfile, StoredUsername);
-    ReadLn(txtProfile, StoredPassword);
-    ReadLn(txtProfile, StoredStudentID); // Read the StudentID (not used for login, but necessary to read the whole file)
-
-    // 3. Compare the stored password with the provided password
-    if StoredPassword = Password then
+    //Staring point of the Card Group
+    if currentLine = 'SUBJECT :' + name and not Found then
     begin
-      ShowMessage('Login successful!');
-      Result := True;
-    end
-    else
-    begin
-      ShowMessage('Incorrect password.');
-      Result := False;
+      Found := true;
+      Continue;
     end;
-  finally
-    // 4. Always close the file
-    CloseFile(txtProfile);
+
+    //Get The Definition
+    if currentLine = 'DEFINITION :' then
+    begin
+        READLN(userTxt , Explaination);
+    end;
+
+    //Get The Explaintion
+    if currentLine = 'EXPLAINATION :' then
+    begin
+      READLN(userTxt , Explaination);
+    end;
+
+    //Create new instance if a FlashCard
+    card := TFlashCard.Create;
+    card.Question := Definition;
+    card.Answer := Explaination;
+
+    //Add It to the dictionary
+    group.cards.Add(name , card);
+
+
+
+    if not currentLine = 'Close : ' + name and Found then
+    begin
+      result := true;
+      Exit;
+    end;
+
   end;
+
 end;
+
+function GetCardAT()
+
+
 
 end.
-
-
-
-// To save a component (e.g., a TForm) to a file:
-

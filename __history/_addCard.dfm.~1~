@@ -1,0 +1,48 @@
+object AddCard: TAddCard
+  Left = 0
+  Top = 0
+  Caption = 'AddCard'
+  ClientHeight = 284
+  ClientWidth = 541
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ButtonedEdit1: TButtonedEdit
+    Left = 184
+    Top = 56
+    Width = 177
+    Height = 21
+    Alignment = taCenter
+    TabOrder = 0
+    TextHint = 'Definition'
+  end
+  object Button1: TButton
+    Left = 232
+    Top = 232
+    Width = 75
+    Height = 25
+    Caption = 'Create'
+    TabOrder = 1
+  end
+  object RichEdit1: TRichEdit
+    Left = 184
+    Top = 104
+    Width = 185
+    Height = 89
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Lines.Strings = (
+      'RichEdit1')
+    ParentFont = False
+    TabOrder = 2
+  end
+end

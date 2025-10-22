@@ -29,5 +29,17 @@
     <Transaction>2025/10/20 11:50:24.760.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit2.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.dfm</Transaction>
     <Transaction>2025/10/20 11:52:38.533.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_registerForm.pas</Transaction>
     <Transaction>2025/10/20 11:52:38.533.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_register.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_registerForm.dfm</Transaction>
+    <Transaction>2025/10/20 19:36:31.380.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\FlashCardForm.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Card.pas</Transaction>
+    <Transaction>2025/10/20 19:36:31.380.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\FlashCardForm.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Card.dfm</Transaction>
+    <Transaction>2025/10/20 19:36:59.106.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Card.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_card.pas</Transaction>
+    <Transaction>2025/10/20 19:36:59.106.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Card.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_card.dfm</Transaction>
+    <Transaction>2025/10/20 19:52:55.714.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\SaveSystem.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\LoginManager.pas</Transaction>
+    <Transaction>2025/10/20 19:53:08.763.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\FlashCardManager.pas</Transaction>
+    <Transaction>2025/10/22 12:42:58.065.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\AddCardForm.pas</Transaction>
+    <Transaction>2025/10/22 12:42:58.065.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\AddCardForm.dfm</Transaction>
+    <Transaction>2025/10/22 12:44:15.712.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\AddCardForm.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_addCard.pas</Transaction>
+    <Transaction>2025/10/22 12:44:15.712.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\AddCardForm.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_addCard.dfm</Transaction>
+    <Transaction>2025/10/22 12:53:17.248.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\SaveSystem.pas</Transaction>
+    <Transaction>2025/10/22 13:49:07.636.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\SaveSystem.pas=</Transaction>
   </Transactions>
 </BorlandProject>

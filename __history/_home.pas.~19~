@@ -1,0 +1,64 @@
+unit _home;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, pngimage, jpeg, ExtCtrls, Buttons ;
+
+type
+  THome = class(TForm)
+    Background: TImage;
+    TransperantBackground: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Image1: TImage;
+    ScrollBox1: TScrollBox;
+    Label3: TLabel;
+    SbtnFlashcard: TSpeedButton;
+    GroupBox1: TGroupBox;
+    Label4: TLabel;
+    Button1: TButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure GroupBox1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+type
+  TSubject = record
+  end;
+
+  type
+  TFlashCard = record
+    Username: string;
+    Score: Integer;
+  end;
+
+var
+  Home: THome;
+  mainOn: bool;
+  Subjects: array of TSubject;
+
+implementation
+
+{$R *.dfm}
+
+uses _login , _card , FlashCardManager;
+procedure THome.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if not login.Visible then
+  begin
+    application.Terminate;
+  end;
+end;
+
+procedure THome.GroupBox1Click(Sender: TObject);
+begin
+  card.Show;
+  hide;
+end;
+
+end.

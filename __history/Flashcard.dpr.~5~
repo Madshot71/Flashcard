@@ -1,0 +1,24 @@
+program Flashcard;
+
+uses
+  Forms,
+  _login in '_login.pas' {Login},
+  _home in '_home.pas' {Home},
+  _admin in '_admin.pas' {Admin},
+  LoginManager in 'LoginManager.pas',
+  _card in '_card.pas' {Card},
+  _registerForm in '_registerForm.pas' {Register},
+  FlashCardManager in 'FlashCardManager.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TLogin, Login);
+  Application.CreateForm(THome, Home);
+  Application.CreateForm(TAdmin, Admin);
+  Application.CreateForm(TCard, Card);
+  Application.CreateForm(TRegister, Register);
+  Application.Run;
+end.

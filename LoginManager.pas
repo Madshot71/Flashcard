@@ -1,0 +1,113 @@
+unit LoginManager;
+
+interface
+
+uses
+  SysUtils, Classes, Dialogs; // Minimal uses for file I/O and messaging
+
+type
+  // ?? FIX 1: Class fields must be declared with a colon (:)
+  // and placed under an access specifier (e.g., public).
+  TPerson = class
+  public
+    Username: string;
+    Password: string;
+    StudentID: string; // Added StudentID field based on your CreateUser function
+  end;
+
+var
+  user : TPerson;
+  profile : Textfile;
+  logedIn : boolean;
+
+
+// Function Declarations
+function CreateUser(name: string; password: string; studentID: string): Boolean;
+function LoginFunction(username: string; Password: string): Boolean;
+
+implementation
+
+function CreateUser(name: string; password: string; studentID: string): Boolean;
+var
+  FileName: string;
+begin
+  FileName := name + '.txt';
+
+  // ?? FIX 3: The logic for existence check is inverted in your original code.
+  // If the file EXISTS, the user EXISTS, so you shouldn't create it.
+  if not FileExists(FileName) then // Check if file DOES NOT exist
+  begin
+    AssignFile(profile, FileName);
+    Rewrite(profile);
+
+    WriteLn(profile, name);       // Line 1: Username
+    WriteLn(profile, password);    // Line 2: Password
+    WriteLn(profile, studentID);   // Line 3: StudentID
+
+    CloseFile(profile);
+    ShowMessage('Profile successfully created.');
+    logedIn := true;
+    Result := True;
+  end
+  else
+  begin
+    ShowMessage('Username already exists.');
+    LogedIn := false;
+    Result := False;
+  end;
+end;
+
+function LoginFunction(username: string; Password: string): Boolean;
+var
+  FileName: string;
+  txtProfile: TextFile;
+  StoredUsername, StoredPassword, StoredStudentID: string;
+begin
+  FileName := username + '.txt';
+
+  // 1. Check if the profile file exists
+  if not FileExists(FileName) then
+  begin
+    ShowMessage('No profile with that username exists.');
+    Result := False;
+    Exit; // Exit the function immediately
+  end;
+
+  // 2. Open the file and read the stored credentials
+  AssignFile(txtProfile, FileName);
+  Reset(txtProfile); // Open file for reading
+
+  try
+    // Read data line-by-line in the same order it was written
+    ReadLn(txtProfile, StoredUsername);
+    ReadLn(txtProfile, StoredPassword);
+    ReadLn(txtProfile, StoredStudentID); // Read the StudentID (not used for login, but necessary to read the whole file)
+
+    // 3. Compare the stored password with the provided password
+    if StoredPassword = Password then
+    begin
+      ShowMessage('Login successful!');
+      user :=  TPerson.Create();
+      user.Username := username;
+      user.Password := password;
+      Result := True;
+      exit;
+    end
+    else
+    begin
+      ShowMessage('Incorrect password.');
+      Result := False;
+    end;
+  finally
+    // 4. Always close the file
+    CloseFile(txtProfile);
+  end;
+end;
+
+
+end.
+
+
+
+// To save a component (e.g., a TForm) to a file:
+

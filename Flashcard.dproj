@@ -52,12 +52,16 @@
 			<DCCReference Include="_admin.pas">
 				<Form>Admin</Form>
 			</DCCReference>
-			<DCCReference Include="SaveSystem.pas"/>
-			<DCCReference Include="FlashCardForm.pas">
-				<Form>Form1</Form>
+			<DCCReference Include="LoginManager.pas"/>
+			<DCCReference Include="_card.pas">
+				<Form>Card</Form>
 			</DCCReference>
 			<DCCReference Include="_registerForm.pas">
 				<Form>Register</Form>
+			</DCCReference>
+			<DCCReference Include="FlashCardManager.pas"/>
+			<DCCReference Include="_addCard.pas">
+				<Form>AddCard</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
@@ -113,6 +117,10 @@
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
 				</Delphi.Personality>
+				<ActiveXProjectInfo>
+					<version>1</version>
+				</ActiveXProjectInfo>
+				<ModelSupport>False</ModelSupport>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>

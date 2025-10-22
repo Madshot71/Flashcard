@@ -2,9 +2,13 @@ object Home: THome
   Left = 0
   Top = 0
   Caption = 'Home'
-  ClientHeight = 600
-  ClientWidth = 800
+  ClientHeight = 761
+  ClientWidth = 784
   Color = clBtnFace
+  Constraints.MaxHeight = 1000
+  Constraints.MaxWidth = 800
+  Constraints.MinHeight = 800
+  Constraints.MinWidth = 600
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -13,15 +17,15 @@ object Home: THome
   OldCreateOrder = False
   OnClose = FormClose
   DesignSize = (
-    800
-    600)
+    784
+    761)
   PixelsPerInch = 96
   TextHeight = 13
   object Background: TImage
     Left = 0
     Top = 0
-    Width = 801
-    Height = 601
+    Width = 785
+    Height = 774
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7029,8 +7033,8 @@ object Home: THome
   object TransperantBackground: TImage
     Left = 0
     Top = 8
-    Width = 801
-    Height = 601
+    Width = 785
+    Height = 774
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7363,10 +7367,12 @@ object Home: THome
       009810C000000000000000130218000000000000604200030000000000004C08
       600000000000008009010C000000000000302180010000000000002604300000
       00000000C0447B01F347311614BA0000000049454E44AE426082}
+    ExplicitWidth = 801
+    ExplicitHeight = 601
   end
   object Label1: TLabel
-    Left = 16
-    Top = 79
+    Left = 15
+    Top = 105
     Width = 89
     Height = 25
     Anchors = []
@@ -7378,6 +7384,8 @@ object Home: THome
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
+    ExplicitLeft = 16
+    ExplicitTop = 79
   end
   object Image1: TImage
     Left = 0
@@ -7522,7 +7530,7 @@ object Home: THome
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 674
+    Left = 659
     Top = 587
     Width = 118
     Height = 14
@@ -7535,10 +7543,11 @@ object Home: THome
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
+    ExplicitLeft = 674
   end
   object ScrollBox1: TScrollBox
-    Left = 168
-    Top = 216
+    Left = 88
+    Top = 168
     Width = 463
     Height = 257
     TabOrder = 0
@@ -7556,17 +7565,49 @@ object Home: THome
       Font.Style = [fsBold]
       NumGlyphs = 2
       ParentFont = False
-      ExplicitLeft = -16
-      ExplicitTop = 92
-      ExplicitWidth = 442
+      ExplicitLeft = -3
     end
-  end
-  object Button2: TButton
-    Left = 264
-    Top = 168
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
-    TabOrder = 1
+    object GroupBox1: TGroupBox
+      Left = 0
+      Top = 50
+      Width = 459
+      Height = 47
+      Align = alTop
+      Color = clGray
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      OnClick = GroupBox1Click
+      object Label4: TLabel
+        Left = 16
+        Top = 14
+        Width = 75
+        Height = 19
+        Alignment = taCenter
+        Caption = 'HISTORY'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object LbNumberofCards: TLabel
+        Left = 296
+        Top = 16
+        Width = 12
+        Height = 13
+        Caption = '10'
+      end
+      object btnAdd: TButton
+        Left = 392
+        Top = 6
+        Width = 51
+        Height = 27
+        Caption = 'ADD'
+        TabOrder = 0
+        OnClick = btnAddClick
+      end
+    end
   end
 end
