@@ -63,6 +63,9 @@
 			<DCCReference Include="_addCard.pas">
 				<Form>AddCard</Form>
 			</DCCReference>
+			<DCCReference Include="_createGroup.pas">
+				<Form>AddGroup</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

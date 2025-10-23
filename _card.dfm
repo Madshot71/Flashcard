@@ -2,7 +2,7 @@ object Card: TCard
   Left = 0
   Top = 0
   Caption = 'Card'
-  ClientHeight = 450
+  ClientHeight = 466
   ClientWidth = 729
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,16 +12,18 @@ object Card: TCard
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
+  OnDestroy = FormDestroy
+  OnShow = FormShow
   DesignSize = (
     729
-    450)
+    466)
   PixelsPerInch = 96
   TextHeight = 13
   object background: TImage
     Left = 0
     Top = 0
     Width = 731
-    Height = 447
+    Height = 463
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7029,7 +7031,7 @@ object Card: TCard
     Left = -2
     Top = 0
     Width = 731
-    Height = 447
+    Height = 463
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7502,5 +7504,54 @@ object Card: TCard
     Height = 25
     Caption = 'Exit'
     TabOrder = 0
+    OnClick = btnExitClick
+  end
+  object Panel1: TPanel
+    Left = 216
+    Top = 88
+    Width = 305
+    Height = 345
+    Color = clCream
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 1
+    object lbWord: TLabel
+      Left = 80
+      Top = 58
+      Width = 153
+      Height = 47
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'lbWord'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Definition: TLabel
+      Left = 40
+      Top = 168
+      Width = 225
+      Height = 113
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Definition'
+    end
+    object btnNext: TButton
+      Left = 64
+      Top = 304
+      Width = 169
+      Height = 25
+      Caption = 'Next'
+      TabOrder = 0
+      OnClick = btnNextClick
+    end
   end
 end

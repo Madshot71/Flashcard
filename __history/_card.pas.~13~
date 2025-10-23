@@ -14,9 +14,9 @@ type
     TopBar: TImage;
     btnExit: TButton;
     Panel1: TPanel;
+    Definition: TRichEdit;
     btnNext: TButton;
     lbWord: TLabel;
-    Definition: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnExitClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -149,6 +149,7 @@ end;
 procedure TCard.FormShow(Sender: TObject);
 begin
   // CRITICAL: Get the group name from the home form's global variable
+
   if groupName = '' then
   begin
     ShowMessage('Error: No subject selected.');
@@ -160,7 +161,7 @@ begin
 
   index := 0;
   cardshown := False;
-  Definition.Caption := '';
+  Definition.Lines.Clear;
   btnNext.Caption := 'Show Answer';
 
   // Start the first test
@@ -175,7 +176,7 @@ procedure TCard.SetUpTest();
 begin
   // Setup for QUESTION
   lbWord.Caption := currentTest.word;
-  Definition.Caption := ''; // Clear the answer display
+  Definition.Lines.Clear; // Clear the answer display
   cardshown := False;
   btnNext.Caption := 'Show Answer';
 end;
@@ -183,7 +184,7 @@ end;
 procedure TCard.ShowAnswer();
 begin
   // Setup for ANSWER
-  Definition.Caption := currentTest.definition; // Show the full answer/explanation
+  Definition.Lines.Text := currentTest.definition; // Show the full answer/explanation
   cardshown := True;
 
   // Mark test as done and update button caption

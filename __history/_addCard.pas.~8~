@@ -30,19 +30,13 @@ uses FlashCardManager , _home;
 
 procedure TAddCard.Button1Click(Sender: TObject);
 begin
-
-  if GroupName.Text = '' then
-  begin
-    showMessage('Error : Group Field is Empty');
-    exit;
-  end;
-
   if Definition.Text = '' then
   begin
     ShowMessage('either Definition or Explaination is empty');
-    exit;
   end;
-  manager.AddCard(GroupName.Text ,Definition.Text , Explaination.Text);
+
+  manager.AddCard(GroupName ,Definition.Text , Explaination.Text);
+  ShowMessage('Flash Card Created');
   Close;
 end;
 

@@ -15,7 +15,7 @@ object AddCard: TAddCard
   TextHeight = 13
   object Definition: TButtonedEdit
     Left = 104
-    Top = 64
+    Top = 48
     Width = 209
     Height = 21
     Alignment = taCenter
@@ -46,14 +46,5 @@ object AddCard: TAddCard
       'Explaination')
     ParentFont = False
     TabOrder = 2
-  end
-  object GroupName: TButtonedEdit
-    Left = 104
-    Top = 32
-    Width = 209
-    Height = 21
-    Alignment = taCenter
-    TabOrder = 3
-    TextHint = 'Group'
   end
 end

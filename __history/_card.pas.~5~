@@ -1,0 +1,44 @@
+unit _card;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, pngimage , StdCtrls, jpeg, Buttons ;
+
+type
+  TCard = class(TForm)
+    background: TImage;
+    transperantBackground: TImage;
+    TopBar: TImage;
+    btnExit: TButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+   // ?? FIX 2: Corrected TFlashCard class syntax
+  TFlashCard = class
+  public
+    Definition: string;
+    Explanation: string; // Corrected typo (Explantion -> Explanation)
+  end;
+
+
+var
+  Card: TCard;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TCard.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
+
+end.

@@ -41,5 +41,7 @@
     <Transaction>2025/10/22 12:44:15.712.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\AddCardForm.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_addCard.dfm</Transaction>
     <Transaction>2025/10/22 12:53:17.248.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\SaveSystem.pas</Transaction>
     <Transaction>2025/10/22 13:49:07.636.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\SaveSystem.pas=</Transaction>
+    <Transaction>2025/10/23 10:17:54.456.pas,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.pas=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_createGroup.pas</Transaction>
+    <Transaction>2025/10/23 10:17:54.474.dfm,C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\Unit1.dfm=C:\Users\admin\Documents\RAD Studio\Projects\Flashcard\_createGroup.dfm</Transaction>
   </Transactions>
 </BorlandProject>

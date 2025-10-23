@@ -1,0 +1,121 @@
+unit _card;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, pngimage , StdCtrls, jpeg, Buttons, ComCtrls , FlashCardManager,
+  Generics.Collections;
+
+type
+  TCard = class(TForm)
+    background: TImage;
+    transperantBackground: TImage;
+    TopBar: TImage;
+    btnExit: TButton;
+    Panel1: TPanel;
+    Definition: TRichEdit;
+    btnNext: TButton;
+    Word: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnExitClick(Sender: TObject);
+    procedure btnNextClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+  TTest = class
+    done : boolean;
+    card : TFlashCard
+  end;
+
+function NextCard(): boolean;
+procedure ShowAnswer();
+
+var
+  Card: TCard;
+  cardshown : boolean;
+  Cards : TFlashCardGroup;
+  CompletedCards : TObjectList<TFlashCard>;
+  currentCard : TFlashCard;
+
+
+implementation
+
+{$R *.dfm}
+
+uses _home;
+
+procedure TCard.btnExitClick(Sender: TObject);
+begin
+ Card.Hide;
+ Home.Show;
+end;
+
+function NextCard(): boolean;
+begin
+
+
+end;
+
+procedure ShowAnswer();
+begin
+  cardShown := true;
+  card.Definition.Text = ;
+end;
+
+
+procedure TCard.btnNextClick(Sender: TObject);
+begin
+  if cardshown then
+    begin
+      NextCard;
+    end else
+    begin
+      ShowAnswer;
+    end;
+end;
+
+function GetRandomCard(name : string): TFlashCard;
+var
+value : integer;
+begin
+
+  value := Random(cards.Cards.Count - 0 + 1) - 1;
+
+
+end;
+
+function cardDone(name : string): boolean;
+var
+ i : integer;
+begin
+  for I := 0 to CompletedCards.Count - 1 do
+  begin
+    if CompletedCards[i].Definition = name then
+    begin
+      result := true;
+      exit;
+    end;
+  end;
+
+  result := false;
+end;
+
+procedure TCard.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
+
+procedure TCard.FormShow(Sender: TObject);
+begin
+  Cards := manager.GetGroup(SelectedSubject);
+  CompletedCards := TObjectList<TFlashCard>.Create();
+end;
+
+end.

@@ -28,7 +28,7 @@ type
     btnPrefab: TButton;
     btnRefresh: TButton;
     Button1: TButton;
-    Exit: TButton; // Button to open the Create Group form
+    Date_Time: TLabel; // Button to open the Create Group form
 
 
     // Event Handlers
@@ -40,7 +40,7 @@ type
     procedure btnPrefabClick(Sender: TObject);
     procedure btnCreateCard(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure ExitClick(Sender: TObject);
+    procedure Data_TimeClick(Sender: TObject);
   private
     { Private declarations }
     function CreateButton(name : string): TButton;
@@ -90,11 +90,6 @@ begin
   end;
 end;
 
-
-procedure THome.ExitClick(Sender: TObject);
-begin
-  Close;
-end;
 
 procedure THome.btnRefreshClick(Sender: TObject);
 begin

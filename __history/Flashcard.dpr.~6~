@@ -9,8 +9,7 @@ uses
   _card in '_card.pas' {Card},
   _registerForm in '_registerForm.pas' {Register},
   FlashCardManager in 'FlashCardManager.pas',
-  _addCard in '_addCard.pas' {AddCard},
-  _createGroup in '_createGroup.pas' {AddGroup};
+  _addCard in '_addCard.pas' {AddCard};
 
 {$R *.res}
 
@@ -23,6 +22,5 @@ begin
   Application.CreateForm(TCard, Card);
   Application.CreateForm(TRegister, Register);
   Application.CreateForm(TAddCard, AddCard);
-  Application.CreateForm(TAddGroup, AddGroup);
   Application.Run;
 end.

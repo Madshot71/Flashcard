@@ -337,7 +337,6 @@ end;
 // Global instance creation
 initialization
   Manager := TFlashCardManager.Create;
-  manager.Subject := TObjectList<TFlashCardGroup>.Create;
 
 finalization
   FreeAndNil(Manager);

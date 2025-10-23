@@ -1,0 +1,106 @@
+unit _card;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, pngimage , StdCtrls, jpeg, Buttons, ComCtrls ,FlashCardManager ,
+  Generics.Collections;
+
+type
+  TCard = class(TForm)
+    background: TImage;
+    transperantBackground: TImage;
+    TopBar: TImage;
+    btnExit: TButton;
+    Panel1: TPanel;
+    Definition: TRichEdit;
+    btnNext: TButton;
+    Word: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnExitClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+  TTest = class
+    done : boolean;
+    card : string;
+    constructor Create(name : string);
+  end;
+
+procedure CreateTest();
+function CreateEachTest(group : TFlashCardGroup) : TObjectList<TTest>;
+
+var
+  Card: TCard;
+  cardshown : boolean;
+  Test : TObjectList<TTest>;
+  groupName : string;
+
+
+implementation
+
+{$R *.dfm}
+
+uses _home;
+
+
+constructor TTest.Create(name: string);
+begin
+  self.card = name;
+end;
+
+procedure CreateTest();
+var
+ i : Integer;
+begin
+  Test.Clear;
+  for I := 0 to manager.Subject.Count - 1 do
+  begin
+    if manager.Subject[i].subjectName = groupName then
+      begin
+        Test := CreateEachTest(manager.Subject[i]);
+        exit;
+      end;
+    end;
+  end;
+end;
+
+function CreateEachTest(group : TFlashCardGroup) : TObjectList<TTest>;
+var
+tmp : TObjectList<TTest>;
+i : integer;
+begin
+     for I := 0 to group.Cards.Count - 1 do
+     begin
+      tmp.Add(TTest.Create(group.cards[i].Definition));
+     end;
+
+     result := tmp;
+end;
+
+
+procedure TCard.btnExitClick(Sender: TObject);
+begin
+ Card.Hide;
+ Home.Show;
+end;
+
+
+procedure TCard.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
+
+procedure TCard.FormShow(Sender: TObject);
+begin
+  CreateTest();
+end;
+
+end.
