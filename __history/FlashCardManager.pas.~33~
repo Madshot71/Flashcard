@@ -306,7 +306,6 @@ begin
           begin
             result := true;
             ShowMessage('Card Remove');
-            Subject[i].Cards.Delete(x);
             exit;
           end;
         end;

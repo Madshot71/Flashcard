@@ -25,7 +25,7 @@ object Admin: TAdmin
     Left = 0
     Top = 0
     Width = 786
-    Height = 798
+    Height = 786
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7033,7 +7033,7 @@ object Admin: TAdmin
     Left = -64
     Top = -56
     Width = 949
-    Height = 885
+    Height = 873
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7366,7 +7366,6 @@ object Admin: TAdmin
       009810C000000000000000130218000000000000604200030000000000004C08
       600000000000008009010C000000000000302180010000000000002604300000
       00000000C0447B01F347311614BA0000000049454E44AE426082}
-    ExplicitHeight = 873
   end
   object Label1: TLabel
     Left = 8
@@ -7580,7 +7579,6 @@ object Admin: TAdmin
     Height = 33
     Caption = 'Exit'
     TabOrder = 2
-    OnClick = btnExitClick
   end
   object CBCards: TComboBox
     Left = 464

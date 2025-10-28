@@ -25,7 +25,6 @@ type
     procedure btnDeleteGroupClick(Sender: TObject);
     procedure btnDeleteCardClick(Sender: TObject);
     procedure btnGroupPrefabClick(Sender: TObject);
-    procedure btnExitClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -111,7 +110,6 @@ begin
     exit;
   end;
   manager.RemoveCard(lastClicked.Caption , CBCards.Text);
-  Refresh;
 end;
 
 procedure TAdmin.btnDeleteGroupClick(Sender: TObject);
@@ -122,13 +120,6 @@ begin
       exit;
     end;
     manager.RemoveGroup(lastClicked.Caption);
-    Refresh;
-end;
-
-procedure TAdmin.btnExitClick(Sender: TObject);
-begin
-  home.Show;
-  hide;
 end;
 
 procedure TAdmin.btnGroupPrefabClick(Sender: TObject);
@@ -175,7 +166,7 @@ begin
     tmpSlot.button.Destroy;
   end;
   GroupSlots.Clear;
-  CBCards.text = '';
+  admin.CBCards.Clear;
 
   admin.CreateButtons;
 end;
@@ -194,7 +185,6 @@ begin
   tmp.Font := Prefab.Font;
   tmp.OnClick := Prefab.OnClick;
   tmp.Caption := name;
-  result := tmp;
 end;
 
 
