@@ -26,16 +26,21 @@ type
     CreateGroup: TButton;
     ScrollBox1: TScrollBox;
     btnPrefab: TButton;
-    btnRefresh: TButton; // Button to open the Create Group form
+    btnRefresh: TButton;
+    Button1: TButton;
+    Exit: TButton; // Button to open the Create Group form
 
 
     // Event Handlers
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btnAddClick(Sender: TObject);
     procedure CreateGroupClick(Sender: TObject);
     procedure Refresh();
     procedure btnRefreshClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btnPrefabClick(Sender: TObject);
+    procedure btnCreateCard(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure ExitClick(Sender: TObject);
   private
     { Private declarations }
     function CreateButton(name : string): TButton;
@@ -43,12 +48,6 @@ type
     { Public declarations }
   end;
 
-type
-  // TFlashCard record definition
-  TFlashCard = record
-    Username: string;
-    Score: Integer;
-  end;
 
 var
   Home: THome;
@@ -89,6 +88,12 @@ begin
     // Refresh the subject list when the Create Group form closes
     Refresh;
   end;
+end;
+
+
+procedure THome.ExitClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure THome.btnRefreshClick(Sender: TObject);
@@ -137,33 +142,47 @@ begin
   end;
 end;
 
-
-procedure THome.btnAddClick(Sender: TObject);
+procedure THome.btnPrefabClick(Sender: TObject);
 var
-  ClickedButton: TButton;
+  clicked : Tbutton;
+  I : Integer;
 begin
-  // Identify the button and get the subject name from its Name property
-  ClickedButton := Sender as TButton;
+  clicked := Sender as TButton;
 
-  // The subject name was stored in the button's Name property in FormShow
-  SelectedSubject := ClickedButton.Name;
-
-  if (SelectedSubject <> '') and Assigned(AddCard) and (not AddCard.Visible) then
+  for I := 0 to manager.Subject.Count - 1 do
   begin
+    if  manager.Subject[i].subjectName = clicked.Caption then
+    begin
+        if manager.Subject[i].Cards.Count <= 0 then
+        begin
+          ShowMessage('Error: No FlashCard under this group found');
+          exit;
+        end;
+    end;
+  end;
+
+  groupname := clicked.Caption;
+  card.Show;
+  Hide;
+end;
+
+procedure THome.btnCreateCard(Sender: TObject);
+
+begin
     // Show the Add Card form for the selected subject
     AddCard.ShowModal;
-
     // Refresh the subject list to update the card counts after closing the AddCard form
     Refresh;
-  end;
 end;
 
 procedure THome.FormActivate(Sender: TObject);
 begin
+  manager.Load;
  if slots = nil then
  begin
    slots := TObjectList<TSlot>.Create;
  end;
+ Refresh;
 end;
 
 procedure THome.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -171,6 +190,11 @@ begin
   // Free the TSlot list when the form closes
   FreeAndNil(Slots);
   Application.Terminate;
+end;
+
+procedure THome.FormDestroy(Sender: TObject);
+begin
+  manager.Save;
 end;
 
 end.

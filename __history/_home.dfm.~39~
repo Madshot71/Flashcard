@@ -1,13 +1,13 @@
-object Admin: TAdmin
+object Home: THome
   Left = 0
   Top = 0
-  Caption = 'Admin'
-  ClientHeight = 761
+  Caption = 'Home'
+  ClientHeight = 702
   ClientWidth = 784
   Color = clBtnFace
-  Constraints.MaxHeight = 1000
+  Constraints.MaxHeight = 800
   Constraints.MaxWidth = 800
-  Constraints.MinHeight = 800
+  Constraints.MinHeight = 700
   Constraints.MinWidth = 600
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,17 +15,19 @@ object Admin: TAdmin
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnShow = FormShow
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnDestroy = FormDestroy
   DesignSize = (
     784
-    761)
+    702)
   PixelsPerInch = 96
   TextHeight = 13
   object Background: TImage
     Left = 0
     Top = 0
-    Width = 786
-    Height = 786
+    Width = 793
+    Height = 791
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7026,14 +7028,14 @@ object Admin: TAdmin
       0838F3E9BFA928BAB2707699AF1FD5669F8A7CAE3CAFDC4F424D5D9182A704CD
       2D774A3CAFDC4A2EDBB12C9382A8B66AAC59FFD9}
     Stretch = True
-    ExplicitWidth = 449
-    ExplicitHeight = 297
+    Transparent = True
+    ExplicitHeight = 850
   end
   object TransperantBackground: TImage
-    Left = -64
-    Top = -56
-    Width = 949
-    Height = 873
+    Left = -25
+    Top = -77
+    Width = 1920
+    Height = 1021
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7366,47 +7368,13 @@ object Admin: TAdmin
       009810C000000000000000130218000000000000604200030000000000004C08
       600000000000008009010C000000000000302180010000000000002604300000
       00000000C0447B01F347311614BA0000000049454E44AE426082}
-  end
-  object Label1: TLabel
-    Left = 8
-    Top = 91
-    Width = 78
-    Height = 24
-    Alignment = taCenter
-    Caption = 'HOME /'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -20
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object Label2: TLabel
-    Left = 92
-    Top = 91
-    Width = 57
-    Height = 24
-    Alignment = taCenter
-    Caption = 'ADIM'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -20
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object Shape1: TShape
-    Left = 8
-    Top = 120
-    Width = 140
-    Height = 5
+    ExplicitHeight = 1080
   end
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 787
+    Width = 792
     Height = 73
-    Anchors = [akLeft, akTop, akRight]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000004190000
       02D008020000005A2A3FE3000000017352474200AECE1CE90000000467414D41
@@ -7529,11 +7497,10 @@ object Admin: TAdmin
       00000A2F010000145E02000028BC0400005078090000A0F012000040E1250000
       80C24B000000C505535702D1A92851DE0000000049454E44AE426082}
     Stretch = True
-    ExplicitWidth = 785
   end
-  object Label3: TLabel
-    Left = 208
-    Top = 0
+  object Label2: TLabel
+    Left = 200
+    Top = 8
     Width = 351
     Height = 77
     Anchors = [akLeft, akTop, akRight]
@@ -7545,56 +7512,69 @@ object Admin: TAdmin
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object ScrollBox1: TScrollBox
-    Left = 72
-    Top = 184
-    Width = 281
-    Height = 409
+  object CreateGroup: TButton
+    Left = 466
+    Top = 601
+    Width = 85
+    Height = 25
+    Anchors = [akBottom]
+    Caption = 'CreateGroup'
     TabOrder = 0
-    object btnGroupPrefab: TButton
+    OnClick = CreateGroupClick
+  end
+  object ScrollBox1: TScrollBox
+    Left = 160
+    Top = 208
+    Width = 433
+    Height = 353
+    Anchors = [akLeft, akTop, akBottom]
+    TabOrder = 1
+    object btnPrefab: TButton
       Left = 0
       Top = 0
-      Width = 277
-      Height = 41
+      Width = 429
+      Height = 57
       Align = alTop
-      Caption = 'btnGroupPrefab'
+      Caption = 'btnPrefab'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       Visible = False
-      OnClick = btnGroupPrefabClick
+      OnClick = btnPrefabClick
     end
   end
-  object btnDeleteGroup: TButton
-    Left = 392
-    Top = 360
-    Width = 145
-    Height = 33
-    Caption = 'DeleteGroup'
-    TabOrder = 1
-    OnClick = btnDeleteGroupClick
-  end
-  object btnExit: TButton
-    Left = 496
-    Top = 432
-    Width = 145
-    Height = 33
-    Caption = 'Exit'
+  object btnRefresh: TButton
+    Left = 328
+    Top = 601
+    Width = 75
+    Height = 25
+    Anchors = [akBottom]
+    Caption = 'Refresh'
     TabOrder = 2
+    OnClick = btnRefreshClick
   end
-  object CBCards: TComboBox
-    Left = 464
-    Top = 270
-    Width = 201
-    Height = 21
+  object Button1: TButton
+    Left = 200
+    Top = 601
+    Width = 75
+    Height = 25
+    Anchors = [akBottom]
+    Caption = 'CreateCard'
     TabOrder = 3
-    Text = 'CBCards'
+    OnClick = btnCreateCard
   end
-  object btnDeleteCard: TButton
-    Left = 575
-    Top = 360
+  object Exit: TButton
+    Left = 296
+    Top = 653
     Width = 145
-    Height = 33
-    Caption = 'DeleteCard'
+    Height = 25
+    Anchors = [akBottom]
+    Caption = 'Exit'
     TabOrder = 4
-    OnClick = btnDeleteCardClick
+    OnClick = ExitClick
   end
 end

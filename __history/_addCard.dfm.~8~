@@ -37,7 +37,6 @@ object AddCard: TAddCard
     Top = 104
     Width = 209
     Height = 89
-    Hint = 'Explaination'
     Alignment = taCenter
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -49,12 +48,21 @@ object AddCard: TAddCard
     ParentFont = False
     TabOrder = 2
   end
-  object cbGroups: TComboBox
+  object GroupName: TButtonedEdit
     Left = 104
-    Top = 37
+    Top = 32
     Width = 209
     Height = 21
+    Alignment = taCenter
     TabOrder = 3
-    Text = 'Groups'
+    TextHint = 'Group'
+  end
+  object cbGroups: TComboBox
+    Left = 272
+    Top = 59
+    Width = 145
+    Height = 21
+    TabOrder = 4
+    Text = 'cbGroups'
   end
 end

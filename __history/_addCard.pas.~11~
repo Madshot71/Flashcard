@@ -10,9 +10,9 @@ type
   TAddCard = class(TForm)
     Definition: TButtonedEdit;
     Button1: TButton;
-    Explaintion: TRichEdit;
+    Explaination: TRichEdit;
+    GroupName: TButtonedEdit;
     procedure Button1Click(Sender: TObject);
-    procedure ExplaintionChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,11 +26,24 @@ implementation
 
 {$R *.dfm}
 
-uses FlashCardManager;
+uses FlashCardManager , _home;
 
 procedure TAddCard.Button1Click(Sender: TObject);
 begin
-  manager.AddCard(Definition.Text , Explaintion.Lines.Text);
+
+  if GroupName.Text = '' then
+  begin
+    showMessage('Error : Group Field is Empty');
+    exit;
+  end;
+
+  if Definition.Text = '' then
+  begin
+    ShowMessage('either Definition or Explaination is empty');
+    exit;
+  end;
+  manager.AddCard(GroupName.Text ,Definition.Text , Explaination.Text);
+  Close;
 end;
 
 end.

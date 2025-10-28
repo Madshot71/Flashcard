@@ -28,7 +28,8 @@ type
     btnPrefab: TButton;
     btnRefresh: TButton;
     Button1: TButton;
-    Exit: TButton; // Button to open the Create Group form
+    Exit: TButton;
+    btnAdmin: TButton; // Button to open the Create Group form
 
 
     // Event Handlers
@@ -41,6 +42,7 @@ type
     procedure btnCreateCard(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure ExitClick(Sender: TObject);
+    procedure btnAdminClick(Sender: TObject);
   private
     { Private declarations }
     function CreateButton(name : string): TButton;
@@ -63,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses _login, _card, _addCard, FlashCardManager, _createGroup;
+uses _login, _card, _addCard, FlashCardManager, _createGroup ,_admin;
 // Assuming FlashCardManager defines manager and the subject types
 // Assuming _createGroup defines AddGroup form
 
@@ -145,10 +147,30 @@ end;
 procedure THome.btnPrefabClick(Sender: TObject);
 var
   clicked : Tbutton;
+  I : Integer;
 begin
   clicked := Sender as TButton;
-  groupname := clicked.Caption;
-  card.Show;
+
+  for I := 0 to manager.Subject.Count - 1 do
+  begin
+    if  manager.Subject[i].subjectName = clicked.Caption then
+    begin
+        if manager.Subject[i].Cards.Count <= 0 then
+        begin
+          ShowMessage('Error: No FlashCard under this group found');
+        end else
+        begin
+          groupname := clicked.Caption;
+          card.Show;
+          Hide;
+        end;
+    end;
+  end;
+end;
+
+procedure THome.btnAdminClick(Sender: TObject);
+begin
+  Admin.Show;
   Hide;
 end;
 

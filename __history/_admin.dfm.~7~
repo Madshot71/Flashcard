@@ -1,7 +1,7 @@
-object Home: THome
+object Admin: TAdmin
   Left = 0
   Top = 0
-  Caption = 'Home'
+  Caption = 'Admin'
   ClientHeight = 761
   ClientWidth = 784
   Color = clBtnFace
@@ -15,8 +15,6 @@ object Home: THome
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnActivate = FormActivate
-  OnClose = FormClose
   DesignSize = (
     784
     761)
@@ -25,8 +23,8 @@ object Home: THome
   object Background: TImage
     Left = 0
     Top = 0
-    Width = 785
-    Height = 786
+    Width = 786
+    Height = 762
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0A544A504547496D616765856A0300FFD8FFE000104A46494600010100000100
@@ -7027,15 +7025,14 @@ object Home: THome
       0838F3E9BFA928BAB2707699AF1FD5669F8A7CAE3CAFDC4F424D5D9182A704CD
       2D774A3CAFDC4A2EDBB12C9382A8B66AAC59FFD9}
     Stretch = True
-    Transparent = True
-    ExplicitWidth = 769
-    ExplicitHeight = 265
+    ExplicitWidth = 449
+    ExplicitHeight = 297
   end
   object TransperantBackground: TImage
     Left = 0
-    Top = 8
-    Width = 785
-    Height = 786
+    Top = 0
+    Width = 941
+    Height = 794
     Anchors = [akLeft, akTop, akRight, akBottom]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -7368,14 +7365,49 @@ object Home: THome
       009810C000000000000000130218000000000000604200030000000000004C08
       600000000000008009010C000000000000302180010000000000002604300000
       00000000C0447B01F347311614BA0000000049454E44AE426082}
-    ExplicitWidth = 801
-    ExplicitHeight = 601
+    ExplicitWidth = 939
+    ExplicitHeight = 488
+  end
+  object Label1: TLabel
+    Left = 8
+    Top = 91
+    Width = 78
+    Height = 24
+    Alignment = taCenter
+    Caption = 'HOME /'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 92
+    Top = 91
+    Width = 57
+    Height = 24
+    Alignment = taCenter
+    Caption = 'ADIM'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Shape1: TShape
+    Left = 8
+    Top = 120
+    Width = 140
+    Height = 5
   end
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 792
+    Width = 787
     Height = 73
+    Anchors = [akLeft, akTop, akRight]
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000004190000
       02D008020000005A2A3FE3000000017352474200AECE1CE90000000467414D41
@@ -7498,11 +7530,12 @@ object Home: THome
       00000A2F010000145E02000028BC0400005078090000A0F012000040E1250000
       80C24B000000C505535702D1A92851DE0000000049454E44AE426082}
     Stretch = True
+    ExplicitWidth = 785
   end
-  object Label2: TLabel
-    Left = 200
-    Top = 8
-    Width = 351
+  object Label3: TLabel
+    Left = 216
+    Top = 0
+    Width = 353
     Height = 77
     Anchors = [akLeft, akTop, akRight]
     Caption = 'FLASHCARD'
@@ -7512,57 +7545,5 @@ object Home: THome
     Font.Name = 'Unispace'
     Font.Style = [fsBold]
     ParentFont = False
-  end
-  object Label3: TLabel
-    Left = 659
-    Top = 587
-    Width = 118
-    Height = 14
-    Alignment = taCenter
-    Anchors = [akTop]
-    Caption = '2025/09/27 18:09'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -12
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    ExplicitLeft = 674
-  end
-  object CreateGroup: TButton
-    Left = 200
-    Top = 464
-    Width = 85
-    Height = 25
-    Anchors = [akBottom]
-    Caption = 'CreateGroup'
-    TabOrder = 0
-    OnClick = CreateGroupClick
-  end
-  object ScrollBox1: TScrollBox
-    Left = 432
-    Top = 120
-    Width = 273
-    Height = 369
-    TabOrder = 1
-    object btnPrefab: TButton
-      Left = 0
-      Top = 0
-      Width = 269
-      Height = 41
-      Align = alTop
-      Caption = 'btnPrefab'
-      TabOrder = 0
-      Visible = False
-    end
-  end
-  object btnRefresh: TButton
-    Left = 88
-    Top = 464
-    Width = 75
-    Height = 25
-    Caption = 'Refresh'
-    TabOrder = 2
-    OnClick = btnRefreshClick
   end
 end

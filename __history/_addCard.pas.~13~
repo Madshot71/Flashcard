@@ -11,6 +11,7 @@ type
     Definition: TButtonedEdit;
     Button1: TButton;
     Explaination: TRichEdit;
+    GroupName: TButtonedEdit;
     cbGroups: TComboBox;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -40,18 +41,12 @@ begin
     exit;
   end;
 
-  if cbGroups.Text = 'Groups' then
-  begin
-    ShowMessage('Error : No Group selected');
-    exit;
-  end;
-
   if Definition.Text = '' then
   begin
     ShowMessage('either Definition or Explaination is empty');
     exit;
   end;
-  manager.AddCard(cbGroups.Text ,Definition.Text , Explaination.Text);
+  manager.AddCard(cbGroups.items[index] ,Definition.Text , Explaination.Text);
   Close;
 end;
 

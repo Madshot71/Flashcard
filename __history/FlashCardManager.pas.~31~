@@ -298,7 +298,7 @@ X : Integer;
 begin
   for I := 0 to Subject.Count - 1 do
   begin
-    if subject[i].subjectname = group then
+    if subject[i].name = group then
     begin
       for X := 0 to Subject[i].cards.Count - 1 do
         begin
@@ -308,26 +308,17 @@ begin
             ShowMessage('Card Remove');
             exit;
           end;
+
         end;
     end;
 
   end;
 end;
 
-function TFlashCardManager.RemoveGroup(name: string) : boolean;
-var
-  I : Integer;
+function TFlashCardManager.RemoveGroup(name: string);
 begin
-  for I := 0 to manager.Subject.Count - 1 do
-  begin
-    if manager.Subject[i].subjectName = name then
-    begin
-      manager.Subject[i].Cards.Clear;
-      manager.Subject.Delete(i);
-    end;
-  end;
-end;
 
+end;
 
 function TFlashCardManager.AddCard;
 var

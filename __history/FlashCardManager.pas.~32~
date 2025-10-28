@@ -308,6 +308,7 @@ begin
             ShowMessage('Card Remove');
             exit;
           end;
+
         end;
     end;
 
@@ -315,19 +316,9 @@ begin
 end;
 
 function TFlashCardManager.RemoveGroup(name: string) : boolean;
-var
-  I : Integer;
 begin
-  for I := 0 to manager.Subject.Count - 1 do
-  begin
-    if manager.Subject[i].subjectName = name then
-    begin
-      manager.Subject[i].Cards.Clear;
-      manager.Subject.Delete(i);
-    end;
-  end;
-end;
 
+end;
 
 function TFlashCardManager.AddCard;
 var

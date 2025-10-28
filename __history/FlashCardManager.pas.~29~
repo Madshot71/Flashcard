@@ -40,8 +40,6 @@ type
     function AddCard(Group, Definition, Explaination : string): boolean;
     function CreateCard(Definition, Explanation: string): TFlashCard;
     function CreateGroup(name : string): boolean;
-    function RemoveCard(group ,name : string): boolean;
-    function RemoveGroup(name : string): boolean;
     function GetGroup(groupName : string): TFlashCardGroup;
     function GetCard(definition : string): boolean; // Unused but kept
     function Load: boolean;
@@ -290,44 +288,6 @@ function TFlashCardManager.CardGroupExists(name : string) : boolean;
 begin
   Result := GetGroup(name) <> nil;
 end;
-
-function TFlashCardManager.RemoveCard(group , name : string): boolean;
-var
-I : Integer;
-X : Integer;
-begin
-  for I := 0 to Subject.Count - 1 do
-  begin
-    if subject[i].subjectname = group then
-    begin
-      for X := 0 to Subject[i].cards.Count - 1 do
-        begin
-          if subject[i].Cards[X].Definition = name then
-          begin
-            result := true;
-            ShowMessage('Card Remove');
-            exit;
-          end;
-        end;
-    end;
-
-  end;
-end;
-
-function TFlashCardManager.RemoveGroup(name: string) : boolean;
-var
-  I : Integer;
-begin
-  for I := 0 to manager.Subject.Count - 1 do
-  begin
-    if manager.Subject[i].subjectName = name then
-    begin
-      manager.Subject[i].Cards.Clear;
-      manager.Subject.Delete(i);
-    end;
-  end;
-end;
-
 
 function TFlashCardManager.AddCard;
 var
