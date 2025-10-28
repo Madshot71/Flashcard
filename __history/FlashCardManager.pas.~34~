@@ -305,10 +305,8 @@ begin
           if subject[i].Cards[X].Definition = name then
           begin
             result := true;
-            ShowMessage('Card has been removed');
+            ShowMessage('Card Remove');
             Subject[i].Cards.Delete(x);
-            Save;
-            Load;
             exit;
           end;
         end;
@@ -321,20 +319,12 @@ function TFlashCardManager.RemoveGroup(name: string) : boolean;
 var
   I : Integer;
 begin
-  Result := False;
-  // CRITICAL FIX: Loop backwards when deleting items to prevent index errors
-  for I := Subject.Count - 1 downto 0 do
+  for I := 0 to manager.Subject.Count - 1 do
   begin
-    // CRITICAL FIX: Correct comparison: check Subject[i].subjectName = name
-    if Subject[i].subjectName = name then
+    if manager.Subject[i].subjectName = name then
     begin
-      // TObjectList<TFlashCardGroup>.Create(True) handles freeing the group and its cards.
-      Subject.Delete(I);
-      ShowMessage('Group has been removed');
-      Save;
-      // CRITICAL FIX: Removed redundant 'Load' call
-      Result := True;
-      Exit;
+      manager.Subject[i].Cards.Clear;
+      manager.Subject.Delete(i);
     end;
   end;
 end;
@@ -353,8 +343,6 @@ begin
   begin
     // Create the card object and add it to the group's list
     groupObj.Cards.Add(CreateCard(Definition, Explaination));
-    Save;
-    Load;
     Result := True;
   end
   else
@@ -378,8 +366,6 @@ begin
   tmp := TFlashCardGroup.Create(name);
   Subject.Add(tmp);
   ShowMessage('Successfully: Group Created');
-  Save;
-  Load;
   Result := true;
 end;
 

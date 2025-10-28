@@ -138,8 +138,6 @@ var
 begin
   LastClicked := Sender as TButton;
 
-  CBCards.items.Clear;
-  CBCards.Text := '';
   for I := 0 to manager.Subject.Count - 1 do
   begin
      if manager.Subject[i].subjectName = LastClicked.Caption then
@@ -177,8 +175,7 @@ begin
     tmpSlot.button.Destroy;
   end;
   GroupSlots.Clear;
-  CBCards.text := '';
-  CBCards.Items.Clear;
+  CBCards.text = '';
 
   admin.CreateButtons;
 end;
